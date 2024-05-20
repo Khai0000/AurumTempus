@@ -1,0 +1,338 @@
+body {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    padding-bottom: 3em;
+}
+
+header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+}
+
+nav {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav .logo {
+    flex: 1;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    gap: 1.5em;
+    padding: 0 2em;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #333;
+    transition: width 0.3s;
+    left: 0;
+    bottom: -5px;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav .icons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+nav .icons .cart-icon {
+    max-width: 2em;
+    max-height: 2em;
+    position: relative;
+}
+
+nav .icons .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    background: #f4f4f4;
+    margin-bottom: 3em;
+}
+
+.hero-content {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.4em;
+    margin: 10px 0;
+}
+
+.gender-preference {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.gender-preference .buttons {
+    gap: 10px;
+    margin-top: 1.2em;
+}
+
+.gender-preference .btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.gender-preference .btn:hover {
+    background: #555;
+}
+
+.hero-image img {
+    max-width: 50em;
+}
+
+
+.dividerContainer {
+    width: 100%;
+    margin: 3em 0;
+}
+
+.divider {
+    height: 3px;
+    width: 95%;
+    margin: auto;
+    align-self: center;
+    background-color: #333;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.previewContainer {
+    width: 95%;
+    margin: auto;
+}
+
+.previewHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.previewHeaderContainer a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.previewHeaderContainer a:hover {
+    background-color: #555;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 3em;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    background-color: #E9E8E4;
+    padding: 1em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.product>.productDetails {
+    flex: 1;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.grid>.product>.imageContainer {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.product img {
+    min-width: 30%;
+    max-width: 30%;
+    object-fit: cover;
+}
+
+.product h2 {
+    font-size: 1.2em;
+    margin: 15px 0 10px;
+}
+
+.product p {
+    color: #888;
+    margin: 0;
+}
+
+.product .price {
+    font-size: 1.2em;
+    color: #000;
+    margin-top: 10px;
+}
+
+.product .old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+}
+
+.aboutUsContainer {
+    color: rgb(233, 232, 228);
+    color: rgba(233, 232, 228,0.9);
+    margin: auto;
+    width: 95%;
+    text-align: end;
+    margin-bottom: 3em;
+    background: url(../assets/watchbackground.png) no-repeat center center;
+    background-size: cover;
+    height: 85vh;
+}
+
+.aboutUsTitle{
+    padding: 1.25em;
+}
+
+.aboutUsTitle>h2{
+    font-size: 2em;
+    margin-bottom: 1.2em;
+}
+
+.aboutUsTitle>h3{
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.aboutUsTitle>h3:nth-last-child(3){
+    margin-bottom: 1.2em;
+}
+
+.aboutUsTitle>p{
+    line-height: 1.5;
+}
+
+.advertiserContainer{
+    background-color: #000;
+    width: 100%;
+    color: white;
+    display: flex;
+    gap: 1em;
+    justify-content: space-evenly;
+}
+
+.blogContainer{
+    width: 95%;
+    margin: auto;
+    padding: 1em;
+}
+
+.blogContainer>h2{
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.blogGrid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 3em;   
+    margin-bottom: 3em;
+}
+
+.blogGrid>.blogPost{
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+    padding: 2em;
+}
+
+.blogGrid>.blogPost>img{
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.blogPost>.blogDetails{
+    display: flex;
+    gap: 0.5em;
+}
+
+.blogPost>.blogDetails{
+    font-size: 1.2em;
+}
+
+.blogPost>h3{
+    margin: 0;
+    margin-top: 0.2em;
+    font-weight: 500;
+    font-size: 2em;
+    overflow-x: hidden;
+    white-space: no-wrap;
+    text-overflow: ellipsis;
+}
