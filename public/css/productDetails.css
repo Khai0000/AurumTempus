@@ -151,11 +151,12 @@
     border-radius: 20px;
     text-align: center;
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .productReviewContainer>button:hover{
     background-color: #AD7C5D;
-    cursor: pointer;
+
 }
 
 .commentsContainer{

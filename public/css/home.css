@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box !important;
-    padding-bottom: 3em;
 }
 
 header {
@@ -300,6 +299,7 @@ footer {
     width: 95%;
     margin: auto;
     padding: 1em;
+    margin-bottom: 3em;
 }
 
 .blogContainer>h2{
