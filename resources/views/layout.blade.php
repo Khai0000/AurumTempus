@@ -6,19 +6,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">
-    <title>@yield('title', 'T!mex')</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>@yield('title', 'Aurum Tempus')</title>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/productPage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/productDetails.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contactUs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo"><a href="/">Aurum Tempus</a></div>
             <ul>
-                <li><a href="/products">Shop All</a></li>
-                <li><a href="#">Company</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="/products">Watches</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="#">Profile</a></li>
             </ul>
             <div class="icons">
                 <img class="cart-icon" src="{{ asset('assets/shopping-bag.png') }}" />

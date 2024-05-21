@@ -1,0 +1,212 @@
+.productDetailsContainer {
+    display: flex;
+    padding: 2em 5em;
+    margin-top: 2em;
+    gap: 4em;
+}
+
+.productDetailsContainer>.productDetailsImageContainer {
+    background-color: #F9F6F2;
+    padding: 2em;
+}
+
+.productDetailsContainer>.productDetailsImageContainer>img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.productDetailsContainer>.productDescriptionContainer {
+    max-width: 50%;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.productName {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.price {
+    margin-bottom: 1.6em;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.productDescription {
+    font-size: 1.4em;
+    margin-bottom: 2.2em;
+}
+
+.productDetailsContainer>.productDescriptionContainer strong{
+    margin-bottom: 1.1em;
+    font-size: 1.4em;
+}
+
+.productDetailsContainer>.productDescriptionContainer span{
+    font-size: 1.4em;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.material{
+    display: inline-flex;
+    width: 100%;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.material>strong{
+    flex: 1;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.material>span{
+    flex: 2;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.origin{
+    display: inline-flex;
+    width: 100%;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.origin>strong{
+    flex: 1;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.origin>span{
+    flex: 2;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.strapColor{
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.strapColor>strong{
+    flex: 1;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.strapColor>span{
+    flex: 2;
+}
+
+
+.productDetailsContainer>.productDescriptionContainer input[type='number']{
+    outline: none;
+    font-size: 1.4em;
+    border: 2px solid #000;
+    background-color: #F9F6F2;
+    padding: 0.5em;
+    padding-left: 1em;
+    max-width: 10%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.quantity>span{
+    margin-right: 1.5em;
+}
+
+.productDetailsContainer>.productDescriptionContainer>.quantity{
+    margin-bottom: 2em;
+}
+
+.addToCartButton{
+    outline: none;
+    border: none;
+    font-size: 1.4em;
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 0.6em 3em;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.addToCartButton:hover{
+    background-color: #AD7C5D;
+}
+
+.productReviewContainer{
+    text-align: center;
+    padding: 2em;
+}
+
+.productReviewContainer>h2{
+    font-size: 2.2em;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 0.25em;
+}
+
+.productReviewContainer>p{
+    font-size: 1.3em;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+.productReviewContainer>button{
+    outline: none;
+    border: none    ;
+    font-size: 1em;
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 1em 3em;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.productReviewContainer>button:hover{
+    background-color: #AD7C5D;
+    cursor: pointer;
+}
+
+.commentsContainer{
+    padding: 3em 15em;
+}
+
+.commentContainer{
+    border: 2px solid #000;
+    padding: 1em 2em;
+    margin: auto;
+    background-color: #F9F6F2;
+    margin-bottom: 3em;
+}
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    font-size: 1em;
+    unicode-bidi: bidi-override;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ccc;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 0 0.1em;
+}
+
+.star-rating input:checked ~ label {
+    color: #f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #fc0;
+}
+
+.commentContainer>.author{
+    font-weight: 400;
+}
+
+.commentContainer>.title{
+    font-weight: 500;
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.commentContainer>.body{
+    font-size: 1.4em;
+}

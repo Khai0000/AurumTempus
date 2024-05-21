@@ -1,0 +1,124 @@
+.contactUsTitle{
+    background-color: #F9F6F2;
+    text-align: center;
+    font-weight: 500;
+    font-size: 4em;
+    padding: 1em 0em;
+    margin-top: -1px;
+
+}
+
+.contactUsContainer{
+    display: flex;
+    /* align-items: center; */
+    gap: 5em;
+    padding: 2em 4em;
+}
+
+.contactUsContainer>.formContainer{
+    flex: 1;
+}
+
+.contactUsContainer>.formContainer>form>label{
+    font-size: 1.25em;
+}
+.contactUsContainer>.formContainer>form>input{
+    display: block;
+    font-size: 1.25em;
+    border-radius: 30px;
+    outline: none;
+    border: 2px solid black;
+    width: 100%;
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+    padding: 0.5em 0.8em;
+}
+
+.contactUsContainer>.formContainer>form>textarea{
+    resize: none;
+    display: block;
+    font-size: 1.25em;
+    border-radius: 30px;
+    outline: none;
+    border: 2px solid black;
+    width: 100%;
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+    padding: 0.5em 1em;
+}
+
+.contactUsContainer>.formContainer>form>button{
+    outline: none;
+    border: none;
+    font-size: 1.25em;
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 0.7em 2em;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.contactUsContainer>.formContainer>form>button:hover{
+    background-color: #AD7C5D;
+}
+
+.contactUsContainer>.contactInfoContainer{
+    flex: 1;
+    border: 2px solid #000;
+    background-color: #F9F6F2;
+    padding: 1em 3em;
+}
+
+.contactUsContainer>.contactInfoContainer>h2{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+
+.contactUsContainer>.contactInfoContainer>p{
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.contactUsContainer>.contactInfoContainer>.p-divider{
+    margin-bottom: 1.5em;
+}
+
+.locationImageContainer{
+    width: 92%;
+    margin: 3em auto;
+}
+
+.locationImageContainer>h3{
+    font-size: 2em;
+    font-weight: 500;
+    margin-top: 2em;
+}
+.locationImageContainer{
+    width: 92%;
+    margin: auto;
+    margin: 3em auto;
+}
+
+.locationImageContainer>img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #AD7C5D;
+}

@@ -207,6 +207,7 @@ footer {
     background-color: #E9E8E4;
     padding: 1em;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
 }
 
 .product>.productDetails {

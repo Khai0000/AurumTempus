@@ -9,3 +9,14 @@ Route::get('/', function () {
 Route::get('/products', function () {
     return view('product');
 });
+
+Route::get('/products/{id}', function ($id) {
+    return view('productDetails');
+});
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+Route::get('/contactUs', function () {
+    return view('contactUs');
+});
