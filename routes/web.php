@@ -17,6 +17,11 @@ Route::get('/products/{id}', function ($id) {
 Route::get('/blog', function () {
     return view('blog');
 });
+
 Route::get('/contactUs', function () {
     return view('contactUs');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
 });

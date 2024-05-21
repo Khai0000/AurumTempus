@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/productDetails.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contactUs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
                 <li><a href="/products">Watches</a></li>
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/contactUs">Contact Us</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="/profile">Profile</a></li>
             </ul>
             <div class="icons">
                 <img class="cart-icon" src="{{ asset('assets/shopping-bag.png') }}" />

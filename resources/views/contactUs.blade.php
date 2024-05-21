@@ -11,7 +11,7 @@
     <div class="formContainer">
         <form action="" method="post">
             <label>Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" >
             <label>Email Address</label>
             <input type="email" name="email" id="email">
             <label>Phone</label>
