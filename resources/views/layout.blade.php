@@ -6,22 +6,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet">
-    <link rel="stylesheet" href="../../public/css/home.css">
     <title>@yield('title', 'T!mex')</title>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/productPage.css') }}">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Aurum Tempus</div>
+            <div class="logo"><a href="/">Aurum Tempus</a></div>
             <ul>
-                <li><a href="#">Shop All</a></li>
+                <li><a href="/products">Shop All</a></li>
                 <li><a href="#">Company</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
             <div class="icons">
-                <img class="cart-icon" src="../../public/assets/shopping-bag.png" />
+                <img class="cart-icon" src="{{ asset('assets/shopping-bag.png') }}" />
             </div>
         </nav>
     </header>

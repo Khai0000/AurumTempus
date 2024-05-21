@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Discover our Collection')
+@section('title', 'Aurum Tempus')
 
 @section('content')
 <div class="hero-section">

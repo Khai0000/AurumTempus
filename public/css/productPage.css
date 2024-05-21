@@ -1,0 +1,100 @@
+.filterContainer{
+    text-align: center;
+    background-color: #F9F6F2;
+    padding: 2em;
+    margin-bottom: 4em;
+}
+
+.filterContainer>h1{
+    font-size: 4em;
+    font-weight: 500;
+}
+
+.filterContainer>.buttonContainer{
+    display: flex;
+    justify-content: center;
+    gap: 2.5em;
+    padding-bottom: 3em;
+}
+
+.filterContainer>.buttonContainer>button{
+    padding: 10px 36px;
+    border: 2px solid black;
+    border-radius: 22px;
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #fff;
+    transition: background-color 0.3s;
+    transition: color 0.3s;
+}
+
+.filterContainer>.buttonContainer>button:hover{
+    color: #fff;
+    background-color: #000;
+}
+
+.filterContainer>.buttonContainer>button:active{
+    color: #fff;
+    background-color: #000;
+}
+
+.productGrid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    padding: 3em;
+    gap: 3em;
+    margin-bottom: 1.5  em;
+}
+
+.productGrid>.product>.imageContainer {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.productGrid>.product>.imageContainer>img {
+    min-width: 50%;
+    max-width: 50%;
+    object-fit: cover;
+}
+
+.productPageIndicator{
+    padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 3em;
+}
+
+.productPageIndicator>.pageNumber{
+    color: #000;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.productPageIndicator>.productButtonContainer{
+    position: absolute;
+    right: 30%;
+}
+
+.productPageIndicator>div>button{
+    padding: 10px 36px;
+    border: 2px solid #ad7c5d;
+    color: #ad7c5d;
+    border-radius: 22px;    
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+
+.productPageIndicator>div>button:hover{
+    border: 2px solid #ad7c5d;
+    background-color: #ad7c5d;
+    color: #fff;
+}
+
+
+
