@@ -25,7 +25,6 @@
     display: block;
     font-size: 1.25em;
     outline: none;
-    border: 2px solid black;
     width: 100%;
     margin-top: 0.2em;
     margin-bottom: 1em;
@@ -37,7 +36,6 @@
     display: block;
     font-size: 1.25em;
     outline: none;
-    border: 2px solid black;
     width: 100%;
     margin-top: 0.2em;
     margin-bottom: 1em;
@@ -97,6 +95,7 @@
     width: 92%;
     margin: auto;
     margin: 3em auto;
+    margin-bottom: 7em;
 }
 
 .locationImageContainer>img{

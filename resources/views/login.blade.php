@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,18 +20,39 @@
         <h1>Aurum Tempus</h1>
         <div class="loginFormContainer">
             <h2>Login</h2>
-            <form action="" method="post">
-                <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" required>
+            <form action="/login" method="post">
+                @csrf
+                <label for="loginEmail">Email Address</label>
+                <input type="email" name="loginEmail" id="email" required>
 
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" name="loginPassword" id="password" required>
 
                 <button type="submit">Login</button>
             </form>
-            <p class="signupLink">Don't have an account? <a href="#">Sign up</a></p>
+            <p class="signupLink">Don't have an account? <a href="/signup">Sign up</a></p>
         </div>
     </div>
+    
+    <script>
+        // Display success message
+        @if(session('success'))
+            toastr.success('{{ session('success') }}');
+        @endif
+    
+        // Display error message
+        @if(session('error'))
+            toastr.error('{{ session('error') }}');
+        @endif
+    
+        // Display validation errors
+        @if($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error('{{ $error }}');
+            @endforeach
+        @endif
+    </script>
+    
 </body>
 
 </html>

@@ -19,7 +19,8 @@
         <h1>Aurum Tempus</h1>
         <div class="loginFormContainer">
             <h2>Sign up</h2>
-            <form action="" method="post">
+            <form action="/signup" method="post">
+                @csrf
                 <label for="email">Email Address</label>
                 <input type="email" name="email" id="email" required>
 
@@ -28,9 +29,28 @@
 
                 <button type="submit">Sign up</button>
             </form>
-            <p class="signupLink">Don't have an account? <a href="#">Login</a></p>
+            <p class="signupLink">Don't have an account? <a href="/login">Login</a></p>
         </div>
     </div>
+
+    <script>
+        // Display success message
+        @if(session('success'))
+            toastr.success('{{ session('success') }}');
+        @endif
+    
+        // Display error message
+        @if(session('error'))
+            toastr.error('{{ session('error') }}');
+        @endif
+    
+        // Display validation errors
+        @if($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error('{{ $error }}');
+            @endforeach
+        @endif
+    </script>    
 </body>
 
 </html>

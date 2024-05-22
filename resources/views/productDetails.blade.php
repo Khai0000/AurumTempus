@@ -3,7 +3,7 @@
 @section('title', 'Discover our Collection')
 
 @section('content')
-<div class="productDetailsContainer">
+{{-- <div class="productDetailsContainer">
     <div class="productDetailsImageContainer">
         <img src="{{asset("assets/watch2-removebg-preview.png")}}" alt="Watch on sales" />
     </div>
@@ -23,6 +23,36 @@
         <div class="strapColor">
             <strong>Strap Color: </strong>
             <span>Coffee</span>
+        </div>
+
+        <div class="quantity">
+            <span>Quantity: </span>
+            <input type="number" value="1" />
+        </div>
+
+        <button class="addToCartButton">Add to Cart</button>
+    </div>
+</div> --}}
+
+<div class="productDetailsContainer">
+    <div class="productDetailsImageContainer">
+        <img src="{{ asset('storage/' . $watch->image) }}" alt="{{ $watch->title }}" />
+    </div>
+    <div class="productDescriptionContainer">
+        <h2 class="productName">{{ $watch->title }}</h2>
+        <p class="price">RM {{ $watch->price }}</p>
+        <p class="productDescription">{{ $watch->description }}</p>
+        <div class="material">
+            <strong>Material Type: </strong>
+            <span>{{ $watch->material_type }}</span>
+        </div>
+        <div class="origin">
+            <strong>Made In: </strong>
+            <span>{{ $watch->origin }}</span>
+        </div>
+        <div class="strapColor">
+            <strong>Strap Color: </strong>
+            <span>{{ $watch->strap_color }}</span>
         </div>
 
         <div class="quantity">

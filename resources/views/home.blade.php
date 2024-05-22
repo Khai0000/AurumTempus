@@ -9,9 +9,11 @@
         <p>Your one-stop shop for the latest and greatest in the world of watches.</p>
         <div class="gender-preference">
             <span>Browse our products:</span>
-            <div class="buttons">
-                <button class="btn">Browse</button>
-            </div>
+            <a href="/products">
+                <div class="buttons">
+                    <button class="btn">Browse</button>
+                </div>
+            </a>
         </div>
     </div>
     <div class="hero-image">
@@ -26,63 +28,20 @@
 <div class="previewContainer">
     <div class="previewHeaderContainer">
         <h2>Trending products</h2>
-        <a href="#">View All</a>
+        <a href="/products">View All</a>
     </div>
     <div class="grid">
-        <div class="product">
+        @foreach($watches as $watch)
+        <div class="product" onclick="redirectToProductDetails('{{ $watch->id }}')">
             <div class="imageContainer">
-                <img src="{{ asset('assets/watch1-removebg-preview.png') }}" alt="Stirling Analog White Dial Watch">
+                <img src="{{ asset('storage/' . $watch->image) }}" alt="{{ $watch->title }}">
             </div>
             <div class="productDetails">
-                <h2>Stirling Analog White Dial Watch</h2>
-                <p><span class="old-price">$250.00 USD</span><span class="price">$210.00 USD</span></p>
+                <h2>{{$watch->title}}</h2>
+                <p class="price">RM {{$watch->price}}</p>
             </div>
         </div>
-        <div class="product">
-            <div class="imageContainer">
-                <img src="{{ asset('assets/watch2-removebg-preview.png') }}" alt="Black Stainless Steel Women Watch">
-            </div>
-            <div class="productDetails">
-                <h2>Black Stainless Steel Women Watch</h2>
-                <p class="price">$210.00 USD</p>
-            </div>
-        </div>
-        <div class="product">
-            <div class="imageContainer">
-                <img src="{{ asset('assets/watch3-removebg-preview.png') }}" alt="Classic Petite Cornwall Women Watch">
-            </div>
-            <div class="productDetails">
-                <h2>Classic Petite Cornwall Women Watch</h2>
-                <p class="price">$110.00 USD</p>
-            </div>
-        </div>
-        <div class="product">
-            <div class="imageContainer">
-                <img src="{{ asset('assets/watch4-removebg-preview.png') }}" alt="The Octagon With Leather Strap Watch">
-            </div>
-            <div class="productDetails">
-                <h2>The Octagon With Leather Strap Watch</h2>
-                <p class="price">$190.00 USD</p>
-            </div>
-        </div>
-        <div class="product">
-            <div class="imageContainer">
-                <img src="{{ asset('assets/watch5-removebg-preview.png') }}" alt="The Octagon With Leather Strap Watch">
-            </div>
-            <div class="productDetails">
-                <h2>The Octagon With Leather Strap Watch</h2>
-                <p class="price">$190.00 USD</p>
-            </div>
-        </div>
-        <div class="product">
-            <div class="imageContainer">
-                <img src="{{ asset('assets/watch6-removebg-preview.png') }}" alt="The Octagon With Leather Strap Watch">
-            </div>
-            <div class="productDetails">
-                <h2>The Octagon With Leather Strap Watch</h2>
-                <p class="price">$190.00 USD</p>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 
@@ -143,4 +102,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function redirectToProductDetails(productId) {
+        window.location.href = '/products/' + productId;
+    }
+</script>
+
 @endsection

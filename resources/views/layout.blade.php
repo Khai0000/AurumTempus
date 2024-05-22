@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/contactUs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cartSideBar.css') }}">
 </head>
 <body>
     <header>
@@ -26,13 +27,64 @@
                 <li><a href="/profile">Profile</a></li>
             </ul>
             <div class="icons">
-                <img class="cart-icon" src="{{ asset('assets/shopping-bag.png') }}" />
+                <img class="cart-icon" id="cartButton" src="{{ asset('assets/shopping-bag.png') }}" />
+                
+                @auth
+                    <img class="cart-icon" src="{{ asset('assets/logoutIcon.png') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" />
+                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endauth
             </div>
         </nav>
     </header>
     <main>
         @yield('content')
     </main>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-content" id="cartSideContent">
+            <div class="cartSideContainer">
+                <div class="cartHeader">
+                    <h2>Your Cart</h2>
+                    <button id="cartCloseButton">X</button>
+                </div>
+                <div class="cart-item">
+                    <p>Michael Kors Access White Dial Men Watch</p>
+                    <p>$158.00 USD</p>
+                </div>
+                <div class="cart-item">
+                    <p>Vacheron Constantin Overseas Men Watch</p>
+                    <p>$95.00 USD</p>
+                </div>
+                <div class="cart-item">
+                    <p>The Octagon With Leather Strap Watch</p>
+                    <p>$188.00 USD</p>
+                </div>
+                <div class="cart-subtotal">
+                    <p>Subtotal: $1,101.00 USD</p>
+                    <button>Checkout</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartButton = document.getElementById('cartButton');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartSideContent = document.getElementById('cartSideContent');
+            const cartCloseButton = document.getElementById('cartCloseButton');
+
+            cartButton.addEventListener('click', function () {
+                cartSidebar.classList.toggle('open');
+                cartSideContent.classList.toggle('open');
+            });
+
+            cartCloseButton.addEventListener('click', function () {
+                cartSidebar.classList.toggle('open');
+                cartSideContent.classList.toggle('open');
+            });
+        });
+    </script>
     <footer>
         <p>&copy; 2024 Aurum Tempus. All rights reserved.</p>
     </footer>
