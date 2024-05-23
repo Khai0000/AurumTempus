@@ -49,17 +49,6 @@
     font-size: 1em;
 }
 
-.uploadProductContainer>.uploadProductDetailsContainer>form>div>textarea{
-    resize: none;
-    display: block;
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-    font-size: 1em;
-}
-
 .uploadProductContainer>.uploadProductDetailsContainer>form>button {
     margin-top: 20px;
     padding: 0.7em 2em ;

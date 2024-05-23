@@ -1,0 +1,75 @@
+.blogDetailsContainer {
+    width: 80%;
+    margin: auto;
+    padding: 2em 5em;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+.blogDetailsContainer>img{
+    margin-top: 10px;
+    max-width: 550px;
+    float: left; 
+    margin-right: 3em; 
+    margin-bottom: 1em; 
+    height: auto; 
+}
+
+.blogDetailsContainer>h2 {
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 2em;
+}
+
+.blogDetailsContainer>p {
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height:2;
+}
+
+.blogBioInfoContainer{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    padding: 1em 0;
+    margin-bottom: 5em;
+    text-align: center;
+    background-color: #F9F6F2;
+    border: 2px solid #000;
+}
+
+.blogBioInfoContainer>.bioInfoContainer{
+    display: flex;
+    flex-direction: column;
+}
+.blogBioInfoContainer>.bioInfoContainer>.columnHead{
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+.blogBioInfoButtonContainer{
+    margin-bottom: 10em;
+    display: flex;
+    gap: 3em;
+    justify-content: space-evenly;
+}
+
+.blogDeleteButton,.blogEditButton{
+    outline: none;
+    border: none;
+    font-size: 1.2em;
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 0.6em 3em;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.blogDeleteButton:hover,.blogEditButton:hover{
+    background-color: #AD7C5D;
+}

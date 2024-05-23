@@ -3,66 +3,37 @@
 @section('title', 'Our Blog')
 
 @section('content')
-<h1 class="blogTitle">
-    Our Latest Blog
-</h1>
+<div class="blogHeaderContainer">
+    <h1 class="blogTitle">
+        Our Latest Blog
+    </h1>
+    @if(auth()->user()->role =='admin')
+        <button class="addNewBlogButton" id="addNewBlogutton" onclick="directToAddBlogPage()">Add New Blog</button>
+    @endif
+</div>
 
 <div class="blogContainer">
     <div class="blogGrid">
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog1.jpg') }}" alt="Blog post image 1" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
+        @foreach ($blogs as $blog)
+            <div class="blogPost" onclick="directToBlogDetails('{{ $blog->id }}')">
+                <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog post" />
+                <div class="blogDetails">
+                    <div>{{$blog->date}}</div>
+                    <div>/</div>
+                    <div>{{$blog->author}}</div>
+                </div>
+                <h3>{{$blog->title}}</h3>
             </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog2.jpg') }}" alt="Blog post image 2" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog3.jpg') }}" alt="Blog post image 3" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog1.jpg') }}" alt="Blog post image 1" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog2.jpg') }}" alt="Blog post image 2" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog3.jpg') }}" alt="Blog post image 3" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
+        @endforeach
     </div>
 </div>
+<script>
+    function directToAddBlogPage() {
+        window.location.href = '/upload/blog';
+    }
+
+    function directToBlogDetails(blogId) {
+        window.location.href = '/blog/' + blogId;
+    }
+</script>
 @endsection

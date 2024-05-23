@@ -1,9 +1,36 @@
-.blogTitle{
+.blogHeaderContainer{
     background-color: #F9F6F2;
+    flex-direction: column;
+    padding: 1em 0em;
+    margin-bottom: 1em;
+    padding: 1em 0em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center; 
+}
+
+.blogPost{
+    cursor: pointer;
+}
+
+.blogTitle{
     text-align: center;
     font-weight: 500;
     font-size: 4em;
-    padding: 1em 0em;
-    margin-top: -1px;
-    margin-bottom: 1em;
+}
+
+.addNewBlogButton{
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 22px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #000;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-bottom: 0.5em;
+}
+
+.addNewBlogButton:hover{
+    background-color: #ad7c5d;
 }

@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="{{ asset('css/productPage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/productDetails.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contactUs.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cartSideBar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/upload.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/uploadBlog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blogDetails.css') }}">
 </head>
 <body>
     <header>

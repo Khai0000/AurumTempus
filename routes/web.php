@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchController;
+use App\Models\Blog;
 use App\Models\Message;
 use App\Models\Watch;
 use Illuminate\Support\Facades\Auth;
@@ -47,8 +49,29 @@ Route::put('/products/{id}/edit', [WatchController::class, 'update']);
 
 // Blogs CRUD routes
 Route::get('/blog', function () {
-    return view('blog');
+    $blogs = Blog::all();
+    return view('blog',['blogs'=>$blogs]);
 });
+
+Route::get('/blog/{id}', function ($id) {
+    $blog = Blog::findOrFail($id); 
+    return view('blogDetails',['blog'=>$blog]);
+});
+
+Route::get('/blog/{id}/edit', function ($id) {
+    $blog = Blog::findOrFail($id); 
+    return view('editBlog',['blog'=>$blog]);
+});
+
+Route::get('/upload/blog', function () {
+    return view('uploadBlog');
+});
+
+Route::post('/create/blog', [BlogController::class,'create']);
+
+Route::delete('/blog/{id}/delete', [BlogController::class,'destroy']);
+
+Route::put('/blog/{id}/edit',[BlogController::class,'update']);
 
 
 // Contact routes
