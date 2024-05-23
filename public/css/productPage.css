@@ -17,6 +17,21 @@
     padding-bottom: 3em;
 }
 
+.addNewProductButton{
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 22px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #000;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.addNewProductButton:hover{
+    background-color: #ad7c5d;
+}
+
 .filterContainer>.buttonContainer>button{
     padding: 10px 36px;
     border: 2px solid black;
@@ -26,6 +41,7 @@
     background-color: #fff;
     transition: background-color 0.3s;
     transition: color 0.3s;
+    cursor: pointer;
 }
 
 .filterContainer>.buttonContainer>button:hover{
@@ -33,9 +49,9 @@
     background-color: #000;
 }
 
-.filterContainer>.buttonContainer>button:active{
-    color: #fff;
+.filterContainer>.buttonContainer>button.selected{
     background-color: #000;
+    color: #fff;
 }
 
 .productGrid{
@@ -67,7 +83,6 @@
 .productGrid>a>.product>.productDetails>h2{
     color: #000;
 }
-
 
 .productPageIndicator{
     padding: 3em;

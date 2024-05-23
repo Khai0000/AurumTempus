@@ -6,6 +6,8 @@ use App\Models\Watch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+// Home route
 Route::get('/', function () {
     if (Auth::check()) {
         $watches = Watch::take(6)->get();
@@ -14,6 +16,13 @@ Route::get('/', function () {
         return view('login');
     }
 });
+
+// Products CRUD routes
+Route::get('/upload/product', function () {
+    return view('upload');
+});
+
+Route::post('/upload/product', [WatchController::class, 'store']);
 
 Route::get('/products', function () {
     $watches = Watch::paginate(6);
@@ -25,25 +34,36 @@ Route::get('/products/{id}', function ($id) {
     return view('productDetails',['watch'=>$watch]);
 });
 
-Route::get('/upload/product', function () {
-    return view('upload');
+Route::get('/products/{id}/edit', function ($id) {
+    $watch = Watch::findOrFail($id); 
+    return view('edit',['watch'=>$watch]);
 });
 
-Route::post('/upload/product', [WatchController::class, 'store']);
+Route::delete('/products/{id}/delete', [WatchController::class,'destroy']);
+Route::put('/products/{id}/edit', [WatchController::class, 'update']);
 
 
+// Blogs CRUD routes
 Route::get('/blog', function () {
     return view('blog');
 });
 
+
+// Contact routes
 Route::get('/contactUs', function () {
     return view('contactUs');
 });
 
+
+// Profile routes
 Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::post('/profile/edit', [UserController::class,'update']);
+
+
+// Authentication routes
 Route::get('/signup', function () {
     return view('signup');
 });

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('strap_color');
             $table->integer('quantity');
             $table->string('image');
+            $table->string('tag');
             $table->timestamps();
         });
     }

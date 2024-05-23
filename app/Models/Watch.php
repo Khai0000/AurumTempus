@@ -10,7 +10,7 @@ class Watch extends Model
     use HasFactory;
     
     protected $fillable = [
-        'title', 'price', 'material_type', 'origin', 'strap_color', 'quantity', 'image'
+        'title', 'price', 'material_type', 'origin', 'strap_color', 'quantity', 'image','tag'
     ];
 
     public function comments()

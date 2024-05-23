@@ -12,14 +12,13 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-        // Set default values for nullable fields
         $defaultFields = [
             'name' => null,
             'phone' => null,
             'address' => null,
+            'role' => 'user',
         ];
 
-        // Merge default fields with incoming request data
         $incomingFields = array_merge($defaultFields, $request->all());
 
         try {
@@ -29,6 +28,7 @@ class UserController extends Controller
                 'password' => ['required'],
                 'phone' => 'nullable|string|max:255',
                 'address' => 'nullable|string|max:255',
+                'role' => 'nullable|string|max:255',
             ]);
 
             $incomingFields = array_merge($validatedFields, $defaultFields);
@@ -66,5 +66,24 @@ class UserController extends Controller
         } else {
             return redirect()->back()->withErrors(['loginEmail' => 'Invalid credentials provided']);
         }
+    }
+
+    public function update(Request $request)
+    {
+        $incomingFields = $request->validate([
+            'name'=>'required|string',
+            'phone'=>'required|string',
+            'address'=>'required|string',
+        ]);
+
+        $user = User::find(auth()->id());
+
+        $user->update([
+            'name'=>$incomingFields['name'],
+            'phone'=>$incomingFields['phone'],
+            'address'=>$incomingFields['address'],
+        ]);
+
+        return redirect('/profile');
     }
 }

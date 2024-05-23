@@ -55,12 +55,21 @@
             <span>{{ $watch->strap_color }}</span>
         </div>
 
-        <div class="quantity">
+        <div class="quantity">  
             <span>Quantity: </span>
             <input type="number" value="1" />
         </div>
 
-        <button class="addToCartButton">Add to Cart</button>
+        @if(auth()->user()->role == 'admin')
+            <button class="productEditButton" onclick="redirectToProductEditPage('{{ $watch->id }}')">Edit</button>
+            <form id="deleteForm_{{ $watch->id }}" action="/products/{{ $watch->id }}/delete" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="button" class="productDeleteButton" onclick="confirmDelete({{ $watch->id }})">Delete</button>
+            </form>
+        @else
+            <button class="addToCartButton">Add to Cart</button>
+        @endif
     </div>
 </div>
 
@@ -129,4 +138,17 @@
             wise man therefore always."</p>
     </div>
 </div>
+<script>
+    function confirmDelete(id) {
+        let confirmation = confirm("Are you sure you want to delete this product?");
+        if (confirmation) {
+            document.getElementById('deleteForm_' + id).submit();
+        }
+    }
+
+    function redirectToProductEditPage(productId) {
+        window.location.href = '/products/' + productId+'/edit';
+    }
+
+</script>
 @endsection

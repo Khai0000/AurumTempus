@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cartSideBar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/upload.css') }}">
 </head>
 <body>
     <header>

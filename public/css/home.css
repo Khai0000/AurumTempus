@@ -226,7 +226,7 @@ footer {
 
 .product img {
     margin: 0;
-    max-width: 70%;
+    max-width: 60%;
     aspect-ratio: 16/9; 
     object-fit: scale-down;
 }
