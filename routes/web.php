@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     if (Auth::check()) {
         $watches = Watch::take(6)->get();
-        return view('home', ['watches' => $watches]);
+        $blogs = Blog::take(3)->get();
+        return view('home', ['watches' => $watches,'blogs'=>$blogs]);
     } else {
         return view('login');
     }
@@ -44,6 +45,7 @@ Route::get('/products/{id}/edit', function ($id) {
 });
 
 Route::delete('/products/{id}/delete', [WatchController::class,'destroy']);
+
 Route::put('/products/{id}/edit', [WatchController::class, 'update']);
 
 

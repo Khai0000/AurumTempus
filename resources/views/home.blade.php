@@ -32,7 +32,7 @@
     </div>
     <div class="grid">
         @foreach($watches as $watch)
-        <div class="product" onclick="redirectToProductDetails('{{ $watch->id }}')">
+        <div class="product" onclick="directToProductDetails('{{ $watch->id }}')">
             <div class="imageContainer">
                 <img src="{{ asset('storage/' . $watch->image) }}" alt="{{ $watch->title }}">
             </div>
@@ -73,39 +73,27 @@
 <div class="blogContainer">
     <h2>Aurum Tempus Times</h2>
     <div class="blogGrid">
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog1.jpg') }}" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
+        @foreach ($blogs as $blog)
+            <div class="blogPost" onclick="directToBlogDetails('{{$blog->id}}')">
+                <img src="{{ asset('storage/'.$blog->image) }}" alt="{{ $blog->title }}"/>
+                <div class="blogDetails">
+                    <div>{{$blog->date}}</div>
+                    <div>/</div>
+                    <div>{{$blog->author}}</div>
+                </div>
+                <h3>{{$blog->title}}</h3>
             </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog2.jpg') }}" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
-        <div class="blogPost">
-            <img src="{{ asset('assets/blog3.jpg') }}" />
-            <div class="blogDetails">
-                <div>May 2, 2023</div>
-                <div>/</div>
-                <div>Charlie Wong</div>
-            </div>
-            <h3>Luxury watch brands ranking in 2024</h3>
-        </div>
+        @endforeach
     </div>
 </div>
 
 <script>
-    function redirectToProductDetails(productId) {
-        window.location.href = '/products/' + productId;
+    function directToProductDetails(productId) {
+        window.location.href = 'products/' + productId;
+    }
+
+    function directToBlogDetails(blogId){
+        window.location.href = 'blog/' + blogId;
     }
 </script>
 
