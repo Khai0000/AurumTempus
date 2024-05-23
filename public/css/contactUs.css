@@ -83,19 +83,15 @@
 
 .locationImageContainer{
     width: 92%;
+    margin: auto;
     margin: 3em auto;
+    margin-bottom: 7em;
 }
 
 .locationImageContainer>h3{
     font-size: 2em;
     font-weight: 500;
     margin-top: 2em;
-}
-.locationImageContainer{
-    width: 92%;
-    margin: auto;
-    margin: 3em auto;
-    margin-bottom: 7em;
 }
 
 .locationImageContainer>img{
@@ -117,4 +113,70 @@
 
 .social-icons a:hover {
     color: #AD7C5D;
+}
+
+.contactUsInfoContainer{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 8em;
+}
+
+.contactUsCardContainer>h2{
+    font-size: 2.4em;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.contactUsCardContainer{
+    display: block;
+    width: 100%;
+    border: 2px solid #000;
+    padding: 1em 2em;
+    background-color: #F9F6F2;
+    margin-bottom: 3em;
+}
+
+.contactUsInfoHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contactUsInfoHeader>form>button{
+    outline: none;
+    border: none;
+    font-size: 1em;
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 0.7em 1.8em;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.contactUsInfoHeader>form>button:hover{
+    background-color: #333;
+}
+
+.contactUsInfoHeader>.author{
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.contactUsCardContainer>.email{
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.contactUsCardContainer>.phone{
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.contactUsCardContainer>.message{
+    font-weight: 500;
+    font-size: 1.5em;
 }

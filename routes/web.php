@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchController;
+use App\Models\Message;
 use App\Models\Watch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -51,9 +53,13 @@ Route::get('/blog', function () {
 
 // Contact routes
 Route::get('/contactUs', function () {
-    return view('contactUs');
+    $messages = Message::all();
+    return view('contactUs',['messages'=>$messages]);
 });
 
+Route::post('/contactUs/create/message', [MessageController::class,'store']);
+
+Route::post('/contactUs/{id}/delete/message', [MessageController::class,'delete']);
 
 // Profile routes
 Route::get('/profile', function () {
