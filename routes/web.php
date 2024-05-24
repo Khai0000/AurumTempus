@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
@@ -27,32 +28,24 @@ Route::get('/', function () {
 Route::get('/upload/product', function () {
     return view('upload');
 });
-
 Route::post('/upload/product', [WatchController::class, 'store']);
-
 Route::get('/products', function () {
     $watches = Watch::paginate(6);
     return view('product', ['watches' => $watches]);
 });
-
 Route::get('/products/{id}', function ($id) {
     $watch = Watch::with(['comments' => function ($query) {
         $query->orderBy('created_at', 'desc');
     }])->findOrFail($id);
     return view('productDetails', ['watch' => $watch]);
 });
-
 Route::get('/products/{id}/edit', function ($id) {
     $watch = Watch::findOrFail($id);
     return view('edit', ['watch' => $watch]);
 });
-
 Route::delete('/products/{id}/delete', [WatchController::class, 'destroy']);
-
 Route::put('/products/{id}/edit', [WatchController::class, 'update']);
-
 Route::post('/products/{id}/create/review', [CommentController::class, 'create']);
-
 Route::post('/products/{watchId}/delete/{commentId}', [CommentController::class, 'destroy']);
 
 
@@ -61,25 +54,19 @@ Route::get('/blog', function () {
     $blogs = Blog::all();
     return view('blog', ['blogs' => $blogs]);
 });
-
 Route::get('/blog/{id}', function ($id) {
     $blog = Blog::findOrFail($id);
     return view('blogDetails', ['blog' => $blog]);
 });
-
 Route::get('/blog/{id}/edit', function ($id) {
     $blog = Blog::findOrFail($id);
     return view('editBlog', ['blog' => $blog]);
 });
-
 Route::get('/upload/blog', function () {
     return view('uploadBlog');
 });
-
 Route::post('/create/blog', [BlogController::class, 'create']);
-
 Route::delete('/blog/{id}/delete', [BlogController::class, 'destroy']);
-
 Route::put('/blog/{id}/edit', [BlogController::class, 'update']);
 
 
@@ -88,30 +75,33 @@ Route::get('/contactUs', function () {
     $messages = Message::all();
     return view('contactUs', ['messages' => $messages]);
 });
-
 Route::post('/contactUs/create/message', [MessageController::class, 'store']);
-
 Route::post('/contactUs/{id}/delete/message', [MessageController::class, 'delete']);
+
 
 // Profile routes
 Route::get('/profile', function () {
     return view('profile');
 });
-
 Route::post('/profile/edit', [UserController::class, 'update']);
 
+
+// Cart Item routes
+Route::get('/cartItems', function () {
+    $cartItems = auth()->user()->cartItems()->with('watch')->get();
+    return response()->json(['cartItems' => $cartItems]);
+});
+Route::post('/cartItems/add', [CartItemController::class, 'add']);
+Route::post('/cartItems/{id}/remove', [CartItemController::class, 'remove']);
+Route::post('/cartItems/removeAll', [CartItemController::class, 'removeAll']);
 
 // Authentication routes
 Route::get('/signup', function () {
     return view('signup');
 });
-
 Route::post('/signup', [UserController::class, 'register']);
-
 Route::get('/login', function () {
     return view('login');
 });
-
 Route::post('/login', [UserController::class, 'login']);
-
 Route::post('/logout', [UserController::class, 'logout']);

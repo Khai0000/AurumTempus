@@ -37,8 +37,14 @@
                 <button type="button" class="productDeleteButton" onclick="confirmDelete({{ $watch->id }})">Delete</button>
             </form>
         @else
-            <button class="addToCartButton">Add to Cart</button>
-        @endif
+            <form id="addToCartForm" action="/cartItems/add" method="POST">
+                @csrf
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="watch_id" value="{{ $watch->id }}">
+                <input type="hidden" name="quantity" id="quantityInput" value="1">
+                <button type="submit" class="addToCartButton">Add to Cart</button>
+            </form>       
+         @endif
     </div>
 </div>
 
