@@ -15,6 +15,6 @@ class Watch extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class)->cascadeDelete();
+        return $this->hasMany(Comment::class);
     }
 }

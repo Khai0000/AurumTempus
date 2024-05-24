@@ -182,33 +182,6 @@
     margin-bottom: 3em;
 }
 
-.star-rating {
-    direction: rtl;
-    display: inline-block;
-    font-size: 1em;
-    unicode-bidi: bidi-override;
-}
-
-.star-rating input {
-    display: none;
-}
-
-.star-rating label {
-    color: #ccc;
-    cursor: pointer;
-    font-size: 2em;
-    padding: 0 0.1em;
-}
-
-.star-rating input:checked ~ label {
-    color: #f90;
-}
-
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: #fc0;
-}
-
 .commentContainer>.author{
     font-weight: 400;
 }
@@ -220,5 +193,69 @@
 }
 
 .commentContainer>.body{
+    margin-top: 0.2em;
     font-size: 1.4em;
+}
+
+.commentContainerHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.star-rating{
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end;
+    direction: rtl; 
+}
+
+.star-rating>input{
+    display: none;  
+}
+
+.star-rating>label{
+    font-size: 40px;
+    color: #444;
+    margin-bottom: 0;
+    transition: all 0.2s;
+}
+
+.star-rating>input:not(:checked)~label:hover,
+.star-rating>input:not(:checked) ~ label:hover ~ label{
+    color: #fd4;
+}
+
+.star-rating>input:not(:checked) ~ label:hover,
+.star-rating>input:checked ~ label{
+    color: #fd4;
+} 
+
+.commentRatingStarContainer{
+    font-size: 40px;
+}
+
+.lightedStar{
+    color: #fd4;
+}
+
+.dullStar{
+    color: #444;
+}
+
+.productCommentDeleteButton{
+    outline: none;
+    border: none;
+    font-size: 1em;
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 0.7em 1.8em;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.productCommentDeleteButton:hover{
+    background-color: #333;
 }

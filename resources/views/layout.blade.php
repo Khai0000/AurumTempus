@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/uploadBlog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/blogDetails.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reviewModal.css') }}">
 </head>
 <body>
     <header>

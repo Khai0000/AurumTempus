@@ -3,37 +3,6 @@
 @section('title', 'Discover our Collection')
 
 @section('content')
-{{-- <div class="productDetailsContainer">
-    <div class="productDetailsImageContainer">
-        <img src="{{asset("assets/watch2-removebg-preview.png")}}" alt="Watch on sales" />
-    </div>
-    <div class="productDescriptionContainer">
-        <h2 class="productName">Stirling Analog White Dial Watch</h2>
-        <p class="price">RM 98.00</p>
-        <p class="productDescription">Son agreed to others exeter period myself few yet nature. Mention mr
-            manners opinion if garrets enabled. To occasional dissimilar</p>
-        <div class="material">  
-            <strong>Material Type: </strong>
-            <span>Leather</span>
-        </div>
-        <div class="origin">
-            <strong>Made In: </strong>
-            <span>London</span>
-        </div>
-        <div class="strapColor">
-            <strong>Strap Color: </strong>
-            <span>Coffee</span>
-        </div>
-
-        <div class="quantity">
-            <span>Quantity: </span>
-            <input type="number" value="1" />
-        </div>
-
-        <button class="addToCartButton">Add to Cart</button>
-    </div>
-</div> --}}
-
 <div class="productDetailsContainer">
     <div class="productDetailsImageContainer">
         <img src="{{ asset('storage/' . $watch->image) }}" alt="{{ $watch->title }}" />
@@ -77,67 +46,83 @@
     <h2>Reviews</h2>
     <p>Read Reviews from Our Satisfied Customers. Share Your Experience with Us by clicking the below button!
     </p>
-    <button>Submit Your Review</button>
+    <button id="reviewButton">Submit Your Review</button>
 </div>
 
 <div class="commentsContainer">
-    <div class="commentContainer">
-        <p class="author">Frances Guerrero</p>
-        <p class="title">A must-have product</p>
-        <div class="star-rating">
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
+    @foreach($watch->comments as $comment)
+        <div class="commentContainer">
+            <div class="commentContainerHeader">
+                <p class="author">{{ $comment->author }}</p>
+                @if(auth()->user()->role=='admin'||auth()->user()->id==$comment->user_id)
+                    <form action="/products/{{ $watch->id }}/delete/{{$comment->id}}}" method="post">
+                        @csrf
+                        <button class="productCommentDeleteButton" type="submit" onclick="return confirm('Are you sure you want to delete this comment?')">Delete</button>
+                    </form>
+                @endif          
+            </div>
+            <p class="title">{{ $comment->comment_title }}</p>
+            <div class="commentRatingStarContainer">
+                @for ($i = 1; $i <= 5; $i++)
+                    @if ($i <= $comment->comment_star_rating)
+                        <span class="lightedStar">★</span>
+                    @else
+                        <span class="dullStar">★</span>
+                    @endif
+                @endfor
+            </div>
+            <p class="body">{{ $comment->comment_body }}</p>
         </div>
-        <p class="body">"But in certain circumstances and owing to the claims of duty or the obligations of
-            business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The
-            wise man therefore always."</p>
-    </div>
-    <div class="commentContainer">
-        <p class="author">Frances Guerrero</p>
-        <p class="title">A must-have product</p>
-        <div class="star-rating">
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
+    @endforeach
+</div>
+
+
+
+<div id="reviewModal" class="modal">
+    <div class="modalContent">
+        <div class="modalHeader">
+            <h2>Submit Your Review</h2>
+            <button id="modalCloseButton">&times;</button>
         </div>
-        <p class="body">"But in certain circumstances and owing to the claims of duty or the obligations of
-            business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The
-            wise man therefore always."</p>
-    </div>
-    <div class="commentContainer">
-        <p class="author">Frances Guerrero</p>
-        <p class="title">A must-have product</p>
-        <div class="star-rating">
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
-        </div>
-        <p class="body">"But in certain circumstances and owing to the claims of duty or the obligations of
-            business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The
-            wise man therefore always."</p>
-    </div>
-    <div class="commentContainer">
-        <p class="author">Frances Guerrero</p>
-        <p class="title">A must-have product</p>
-        <div class="star-rating">
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
-        </div>
-        <p class="body">"But in certain circumstances and owing to the claims of duty or the obligations of
-            business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The
-            wise man therefore always."</p>
+        <form id="reviewForm" action="/products/{{$watch->id}}/create/review" method="post">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            <div class="form-group">
+                <label for="author">Name</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Review Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <div class="star-rating">
+                    <input type="radio" name="rating" id="rate5" value="5">
+                    <label for="rate5">★</label>
+
+                    <input type="radio" name="rating" id="rate4" value="4">
+                    <label for="rate4">★</label>
+
+                    <input type="radio" name="rating" id="rate3" value="3">
+                    <label for="rate3">★</label>
+
+                    <input type="radio" name="rating" id="rate2" value="2">
+                    <label for="rate2">★</label>
+                    
+                    <input type="radio" name="rating" id="rate1" value="1">
+                    <label for="rate1">★</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="body">Review</label>
+                <textarea id="body" name="body" rows="5" required></textarea>
+            </div>
+            <button type="submit">Submit Review</button>
+        </form>
     </div>
 </div>
+
 <script>
     function confirmDelete(id) {
         let confirmation = confirm("Are you sure you want to delete this product?");
@@ -149,6 +134,21 @@
     function redirectToProductEditPage(productId) {
         window.location.href = '/products/' + productId+'/edit';
     }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        var modal = document.getElementById("reviewModal");
+        const reviewButton = document.getElementById("reviewButton")
+        const modalCloseButton = document.getElementById("modalCloseButton");
+
+        reviewButton.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        modalCloseButton.onclick = function() {
+            modal.style.display = "none";
+        }
+    });
 
 </script>
 @endsection

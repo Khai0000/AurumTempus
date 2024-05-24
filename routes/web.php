@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchController;
@@ -16,7 +17,7 @@ Route::get('/', function () {
     if (Auth::check()) {
         $watches = Watch::take(6)->get();
         $blogs = Blog::take(3)->get();
-        return view('home', ['watches' => $watches,'blogs'=>$blogs]);
+        return view('home', ['watches' => $watches, 'blogs' => $blogs]);
     } else {
         return view('login');
     }
@@ -35,63 +36,69 @@ Route::get('/products', function () {
 });
 
 Route::get('/products/{id}', function ($id) {
-    $watch = Watch::findOrFail($id); 
-    return view('productDetails',['watch'=>$watch]);
+    $watch = Watch::with(['comments' => function ($query) {
+        $query->orderBy('created_at', 'desc');
+    }])->findOrFail($id);
+    return view('productDetails', ['watch' => $watch]);
 });
 
 Route::get('/products/{id}/edit', function ($id) {
-    $watch = Watch::findOrFail($id); 
-    return view('edit',['watch'=>$watch]);
+    $watch = Watch::findOrFail($id);
+    return view('edit', ['watch' => $watch]);
 });
 
-Route::delete('/products/{id}/delete', [WatchController::class,'destroy']);
+Route::delete('/products/{id}/delete', [WatchController::class, 'destroy']);
 
 Route::put('/products/{id}/edit', [WatchController::class, 'update']);
+
+Route::post('/products/{id}/create/review', [CommentController::class, 'create']);
+
+Route::post('/products/{watchId}/delete/{commentId}', [CommentController::class, 'destroy']);
 
 
 // Blogs CRUD routes
 Route::get('/blog', function () {
     $blogs = Blog::all();
-    return view('blog',['blogs'=>$blogs]);
+    return view('blog', ['blogs' => $blogs]);
 });
 
 Route::get('/blog/{id}', function ($id) {
-    $blog = Blog::findOrFail($id); 
-    return view('blogDetails',['blog'=>$blog]);
+    $blog = Blog::findOrFail($id);
+    return view('blogDetails', ['blog' => $blog]);
 });
 
 Route::get('/blog/{id}/edit', function ($id) {
-    $blog = Blog::findOrFail($id); 
-    return view('editBlog',['blog'=>$blog]);
+    $blog = Blog::findOrFail($id);
+    return view('editBlog', ['blog' => $blog]);
 });
 
 Route::get('/upload/blog', function () {
     return view('uploadBlog');
 });
 
-Route::post('/create/blog', [BlogController::class,'create']);
+Route::post('/create/blog', [BlogController::class, 'create']);
 
-Route::delete('/blog/{id}/delete', [BlogController::class,'destroy']);
+Route::delete('/blog/{id}/delete', [BlogController::class, 'destroy']);
 
-Route::put('/blog/{id}/edit',[BlogController::class,'update']);
+Route::put('/blog/{id}/edit', [BlogController::class, 'update']);
 
 
 // Contact routes
 Route::get('/contactUs', function () {
     $messages = Message::all();
-    return view('contactUs',['messages'=>$messages]);
+    return view('contactUs', ['messages' => $messages]);
 });
 
-Route::post('/contactUs/create/message', [MessageController::class,'store']);
+Route::post('/contactUs/create/message', [MessageController::class, 'store']);
 
-Route::post('/contactUs/{id}/delete/message', [MessageController::class,'delete']);
+Route::post('/contactUs/{id}/delete/message', [MessageController::class, 'delete']);
 
 // Profile routes
 Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::post('/profile/edit', [UserController::class,'update']);
+Route::post('/profile/edit', [UserController::class, 'update']);
 
 
 // Authentication routes
