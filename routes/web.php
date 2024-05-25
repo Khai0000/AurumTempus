@@ -24,6 +24,7 @@ Route::get('/', function () {
     }
 });
 
+
 // Products CRUD routes
 Route::get('/upload/product', function () {
     return view('upload');
@@ -51,7 +52,7 @@ Route::post('/products/{watchId}/delete/{commentId}', [CommentController::class,
 
 // Blogs CRUD routes
 Route::get('/blog', function () {
-    $blogs = Blog::all();
+    $blogs = Blog::all(); 
     return view('blog', ['blogs' => $blogs]);
 });
 Route::get('/blog/{id}', function ($id) {
@@ -105,3 +106,8 @@ Route::get('/login', function () {
 });
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/logout', [UserController::class, 'logout']);
+
+
+
+// contactUs,watch,authentication
+// profile,blog,cart

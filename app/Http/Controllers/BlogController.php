@@ -19,13 +19,11 @@ class BlogController extends Controller
             'category' => 'required|string',
         ]);
 
-        // Handle the file upload
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
             $validatedData['image'] = $imagePath;
         }
 
-        // Create the blog post
         Blog::create($validatedData);
 
         return redirect('/blog')->with('success', 'Blog post created successfully!');

@@ -28,13 +28,13 @@
 
 <div class="blogBioInfoButtonContainer">
     @if(auth()->user()->role == 'admin')
-    <button class="blogEditButton" onclick="directToBlogEditPage('{{ $blog->id }}')">Edit</button>
-    <form id="deleteForm_{{ $blog->id }}" action="/blog/{{ $blog->id }}/delete" method="POST" style="display:inline;">
-        @csrf
-        @method('DELETE')
-        <button type="button" class="blogDeleteButton" onclick="confirmDelete({{ $blog->id }})">Delete</button>
-    </form>
-@endif
+        <button class="blogEditButton" onclick="directToBlogEditPage('{{ $blog->id }}')">Edit</button>
+        <form id="deleteForm_{{ $blog->id }}" action="/blog/{{ $blog->id }}/delete" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="button" class="blogDeleteButton" onclick="confirmDelete({{ $blog->id }})">Delete</button>
+        </form>
+    @endif
 </div>
 <script>
 
